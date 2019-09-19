@@ -16,6 +16,7 @@
         // 새창에 대한 세팅(옵션)
         var settings ='toolbar=0,directories=0,status=no,menubar=0,scrollbars=auto,resizable=no,height=200,width=200,left=0,top=0';
         var url = "https://naikiki87.github.io/naikiki-repo/Child.html";
+        //var url = "Child.html";
         // 자식창을 열고 자식창의 window 객체를 windowObj 변수에 저장
         windowObj = window.open(url,"자식창",settings);
 
@@ -23,8 +24,6 @@
         windowObj.document.getElementById("childText").value = document.getElementById('parentText').value;
       }
 
-      function test() {
-        alert("Hello");
-        console.log("hello");
-      }
+    
     </script>
+    <script type="text/javascript" src="javascript/taskmanage.js"></script>
