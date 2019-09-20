@@ -7,11 +7,22 @@
   <body>
 
     <button onclick="cal_point()"> cliddk </button>
+    <button onclick="test(0, 0, 0, 1)"> dk </button>
 
     <script>
 
-      function test() {
-        console.log("Hello");
+      function test(a, b, c, d) {
+
+        var deg;
+        deg = (d-b)/(c-a);
+
+        if(deg == "Infinity") {
+          console.log("How");
+          //deg = 1;
+        }
+
+        console.log(deg);
+
       }
 
       function cal_point() {

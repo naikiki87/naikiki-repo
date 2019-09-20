@@ -2,14 +2,15 @@ function addlink(start_x, start_y, dest_x, dest_y, w1, h1, w2, h2) {
 
   console.log(start_x);
   var startpt_x = 0, startpt_y=0, destpt_x=0, destpt_y=0;
-  var s_top = start_y;
-  var d_top = dest_y;
-  var s_bottom = start_y + h1;
-  var d_bottom = dest_y + h2;
-  var s_left = start_x;
-  var d_left = dest_x;
-  var s_right = start_x + w1;
-  var d_right = dest_x + w2;
+  var box_margin = 2;
+  var s_top = start_y - box_margin;
+  var d_top = dest_y - box_margin;
+  var s_bottom = start_y + h1 + box_margin;
+  var d_bottom = dest_y + h2 + box_margin;
+  var s_left = start_x - box_margin;
+  var d_left = dest_x - box_margin;
+  var s_right = start_x + w1 + box_margin;
+  var d_right = dest_x + w2 + box_margin;
 
   var r_arrow_x, r_arrow_y, l_arrow_x, l_arrow_y;
   var m_arrow_x, m_arrow_y;
@@ -84,6 +85,20 @@ function addlink(start_x, start_y, dest_x, dest_y, w1, h1, w2, h2) {
   }
 
   degree = (destpt_y - startpt_y) / (destpt_x - startpt_x);
+
+  console.log(degree);
+
+  if(degree == "Infinity") {
+    console.log("Infini");
+    degree = 1000;
+  }
+  if(degree == "-Infinity")
+  {
+    degree = -1000
+  }
+  if(degree == 0) {
+    degree = 0.001;
+  }
   v_degree = -1 / degree;
   arrow_len = 5;
 
