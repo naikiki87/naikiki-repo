@@ -93,15 +93,20 @@ input:checked + .slider:before {
 .div-content {
     width: 70px;
     height: 70px;
-    background-color:white;
+    background-color:#f2f2f2;
     color:black;
     padding:0px;
     float:left;
     margin:0px;
     text-align:center;
-    border:2px solid;
+    line-height: 10px;
+    border:1px solid #a4a4a4;
     }
 .no-drag {
+  font-style : italic;
+  font-weight : 700;
+  font-size : 25px;
+  color : #0080ff;
   -ms-user-select: none;
   -moz-user-select: -moz-none;
   -webkit-user-select: none;
@@ -110,8 +115,9 @@ input:checked + .slider:before {
   pointer-events : none;
 }
 #contents div:hover{
-  background:blue;
+  background:#a9e2f3;
   color:white;
+  border : 1px solid blue;
  }
 
  .linkline:hover{
