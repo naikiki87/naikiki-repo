@@ -6,7 +6,7 @@
 }
 */
 .linkline {
-  stroke:black;
+  stroke:#585858;
   stroke-width:2;
   pointer-events:auto;
 }
