@@ -41,6 +41,8 @@ div {
 .tree_header {
   padding: 0px;
   margin : 0px;
-  background-color: yellow;
+  height : 18px;
+  background-color: black;
+  color : white;
   /*#border-style:dotted;*/
 }
