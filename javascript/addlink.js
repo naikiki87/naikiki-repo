@@ -1,6 +1,10 @@
 function addlink(start_x, start_y, dest_x, dest_y, w1, h1, w2, h2) {
 
-  console.log(start_x);
+  console.log("start x : " + start_x);
+  console.log("start y : " + start_y);
+  console.log("dest x : " + dest_x);
+  console.log("dest y : " + dest_y);
+
   var startpt_x = 0, startpt_y=0, destpt_x=0, destpt_y=0;
   var box_margin = 2;
   var s_top = start_y - box_margin;
@@ -75,7 +79,7 @@ function addlink(start_x, start_y, dest_x, dest_y, w1, h1, w2, h2) {
       destpt_x = d_right;
       destpt_y = d_top + h2/2;
     }
-    else if(s_right <= d_bottom) {
+    else if(s_right <= d_left) {
       console.log("case 8");
       startpt_x = s_right;
       startpt_y = s_top + h1/2;
