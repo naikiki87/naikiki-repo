@@ -1,0 +1,42 @@
+<html>
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+</head>
+<body>
+  <ul id="gnb">
+    <li>
+      <h3> 소개 </h3>
+      <ul class = "sub">
+        <li onclick = "test()"> 소개 </li>
+        <li> 안내 </li>
+        <li> 오시는길 </li>
+      </ul>
+    </li>
+  </ul>
+
+  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    function test() {
+      alert("hello");
+    }
+
+    $(document).on("contextmenu","#gnb",function(){
+      event.preventDefault();
+      //event.stopPropagation();
+      //alert("Left clicked");
+      console.log("left clicked");
+    });
+
+    /*
+    $(function() {
+      $('#gnb .sub').hide();
+      $('#gnb').click(function(){
+        $('#gnb .sub').toggle();
+      })
+    })
+    */
+  </script>
+
+  </body>
+</html>
