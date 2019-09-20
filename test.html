@@ -5,12 +5,38 @@
     <title>Vertical Align</title>
   </head>
   <body>
-    <button onclick="pointing(10, 10, 1, 1)"> click </button>
+    <button onclick="pointing(5, 5, 10, 2)"> click </button>
 
 
     <script>
+    function pointing(a, b, l, d) {
+    //function pointing() {
 
-    function pointing(c, d, len, deg) {
+      var x1, x2;
+      var y1, y2;
+      //var y2 = b-(a*d);
+      //var y3 = y2 - b;
+
+      var A = 1 + (d*d);
+      var B = (2*a*d*d) - (2*a);
+      var C = (a*a) + (a*a*d*d) - (l*l);
+
+      console.log("A : " + A);
+      console.log("B : " + B);
+      console.log("C : " + C);
+
+      x1 = (-1*B + Math.sqrt(B*B - 4*A*C)) / (2*A);
+      x2 = (-1*B - Math.sqrt(B*B - 4*A*C)) / (2*A);
+      console.log((B*B - 4*A*C));
+
+      y1 = d * x1 + b - a*d;
+      y2 = d * x2 + b - a*d;
+
+      console.log("x1 : " + x1 + ", y1 : " + y1);
+      console.log("x2 : " + x2 + ", y2 : " + y2);
+}
+
+/*    function pointing(c, d, len, deg) {
     //function pointing() {
 
       //var a, b, c, d, x, y;
@@ -58,7 +84,7 @@
 
 
 }
-
+*/
 
     </script>
   </body>

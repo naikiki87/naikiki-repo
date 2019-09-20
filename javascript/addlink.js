@@ -15,19 +15,10 @@ function addlink(start_x, start_y, dest_x, dest_y, w1, h1, w2, h2) {
   var m_arrow_x, m_arrow_y;
   var degree, v_degree;
   var arrow_size;
-  var dif = 0.01;
-  var arrow_len = 0.97;
-
-/*
-  console.log("s_top : " + s_top);
-  console.log("d_top : " + d_top);
-  console.log("s_bot : " + s_bottom);
-  console.log("d_bot : " + d_bottom);
-  console.log("s_left : " + s_left);
-  console.log("d_left : " + d_left);
-  console.log("s_right : " + s_right);
-  console.log("d_right : " + d_right);
-*/
+  var c;
+  var step = 1;
+  var arrow_dif;
+  var arrow_len;
 
   if(s_top >= d_bottom) {
     if(s_left >= (d_right + w2)) {
@@ -94,132 +85,79 @@ function addlink(start_x, start_y, dest_x, dest_y, w1, h1, w2, h2) {
 
   degree = (destpt_y - startpt_y) / (destpt_x - startpt_x);
   v_degree = -1 / degree;
-
-  console.log("start x : " + startpt_x + ", start y : " + startpt_y);
-  console.log("dest x : " + destpt_x + ", dest y : " + destpt_y);
-
-  console.log("degree : " + degree);
-  console.log("v degree : " + v_degree);
+  arrow_len = 5;
 
   if(destpt_x >= startpt_x) {
-    console.log("arrow case 3");
-
-    m_arrow_x = destpt_x - arrow_len * 0.85;
-    m_arrow_x = destpt_x - arrow_len * 0.85;
-
-//    m_arrow_x = destpt_x * arrow_len;
-    m_arrow_y = degree * (m_arrow_x - startpt_x) + startpt_y;
-
-    console.log("Arrow x : " + m_arrow_x + ", Arrow y : " + m_arrow_y);
-
-//r_arrow_x = m_arrow_x + dif;
-
-
-    r_arrow_x = m_arrow_x * (1 + dif);
-    r_arrow_y = v_degree * (r_arrow_x - m_arrow_x) + m_arrow_y;
-
-    console.log("Arrow_r x : " + r_arrow_x + ", Arrow_r y : " + r_arrow_y);
-
-//l_arrow_x = m_arrow_x - dif;
-    l_arrow_x = m_arrow_x * (1 - dif);
-    l_arrow_y = v_degree * (l_arrow_x - m_arrow_x) + m_arrow_y;
-    console.log("Arrow_l x : " + l_arrow_x + ", Arrow_l y : " + l_arrow_y);
+    c = 1;
   }
-  else {
-    console.log("arrow case 2");
-
-    m_arrow_x = destpt_x * (1/arrow_len);
-    m_arrow_y = degree * (m_arrow_x - startpt_x) + startpt_y;
-
-    console.log("Arrow x : " + m_arrow_x + ", Arrow y : " + m_arrow_y);
-
-    r_arrow_x = m_arrow_x * (1 + dif);
-    r_arrow_y = v_degree * (r_arrow_x - m_arrow_x) + m_arrow_y;
-
-    console.log("Arrow_r x : " + r_arrow_x + ", Arrow_r y : " + r_arrow_y);
-
-    l_arrow_x = m_arrow_x * (1 - dif);
-    l_arrow_y = v_degree * (l_arrow_x - m_arrow_x) + m_arrow_y;
-    console.log("Arrow_l x : " + l_arrow_x + ", Arrow_l y : " + l_arrow_y);
+  else{
+    c = 2;
   }
+  console.log("arrow case : " + c);
 
-/*
-  if(destpt_y <= startpt_y) {
-    if(destpt_x >= startpt_x) {
-      console.log("arrow case 1");
+  m_arrow_x = pointing_x(destpt_x, destpt_y, degree, arrow_len, c, step);
+  m_arrow_y = pointing_y(m_arrow_x, destpt_x, destpt_y, degree);
 
-      m_arrow_x = destpt_x * arrow_len;
-      m_arrow_y = degree * (m_arrow_x - startpt_x) + startpt_y;
+  step = 1;
+  r_arrow_x = pointing_x(m_arrow_x, m_arrow_y, v_degree, arrow_len, c, step);
+  r_arrow_y = pointing_y(r_arrow_x, m_arrow_x, m_arrow_y, v_degree);
 
-      console.log("Arrow x : " + m_arrow_x + ", Arrow y : " + m_arrow_y);
-
-      r_arrow_x = m_arrow_x * (1 + dif);
-      r_arrow_y = v_degree * (r_arrow_x - m_arrow_x) + m_arrow_y;
-
-      console.log("Arrow_r x : " + r_arrow_x + ", Arrow_r y : " + r_arrow_y);
-
-      l_arrow_x = m_arrow_x * (1 - dif);
-      l_arrow_y = v_degree * (l_arrow_x - m_arrow_x) + m_arrow_y;
-      console.log("Arrow_l x : " + l_arrow_x + ", Arrow_l y : " + l_arrow_y);
-
-
-
-    }
-    else {
-      console.log("arrow case 2");
-
-    }
-  }
-  else {
-    if(destpt_x >= startpt_x) {
-      console.log("arrow case 3");
-
-      m_arrow_x = destpt_x * arrow_len;
-      m_arrow_y = degree * (m_arrow_x - startpt_x) + startpt_y;
-
-      console.log("Arrow x : " + m_arrow_x + ", Arrow y : " + m_arrow_y);
-
-      r_arrow_x = m_arrow_x * (1 + dif);
-      r_arrow_y = v_degree * (r_arrow_x - m_arrow_x) + m_arrow_y;
-
-      console.log("Arrow_r x : " + r_arrow_x + ", Arrow_r y : " + r_arrow_y);
-
-      l_arrow_x = m_arrow_x * (1 - dif);
-      l_arrow_y = v_degree * (l_arrow_x - m_arrow_x) + m_arrow_y;
-      console.log("Arrow_l x : " + l_arrow_x + ", Arrow_l y : " + l_arrow_y);
-    }
-
-    else {
-      console.log("arrow case 4");
-    }
-  }
-  */
-
-/*
-  console.log("s_pot_x : " + startpt_x);
-  console.log("s_pot_y : " + startpt_y);
-  console.log("d_pot_x : " + destpt_x);
-  console.log("d_pot_y : " + destpt_y);
-*/
-/*
-  var svgdiv = document.getElementById('parent');
-  var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-  line.setAttribute('id', 'linkid');
-  line.setAttribute('class', 'linkline');
-  //line.setAttribute('stroke-dasharray', "10, 5");
-  line.setAttribute('x1', startpt_x);
-  line.setAttribute('y1', startpt_y);
-  line.setAttribute('x2', destpt_x);
-  line.setAttribute('y2', destpt_y);
-  */
+  step = 2;
+  l_arrow_x = pointing_x(m_arrow_x, m_arrow_y, v_degree, arrow_len, c, step);
+  l_arrow_y = pointing_y(l_arrow_x, m_arrow_x, m_arrow_y, v_degree);
 
   var svgdiv = document.getElementById('parent');
   var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   path.setAttribute('id', 'linkid');
   path.setAttribute('class', 'linkline');
   //line.setAttribute('stroke-dasharray', "10, 5");
+
   path.setAttribute('d', "M" + startpt_x + "," + startpt_y + " " + destpt_x + "," + destpt_y + " " + r_arrow_x + "," + r_arrow_y + " " + l_arrow_x + "," + l_arrow_y + " " + destpt_x + "," + destpt_y);
 
   svgdiv.appendChild(path);
 
+}
+
+function pointing_x(a, b, d, l, c, step) {
+
+  var x1, x2, result;
+
+  var A = 1 + (d*d);
+  var B = (-2*a*d*d) - (2*a);
+  var C = (a*a) + (a*a*d*d) - (l*l);
+
+
+  x1 = (-1*B + Math.sqrt(B*B - 4*A*C)) / (2*A);
+  x2 = (-1*B - Math.sqrt(B*B - 4*A*C)) / (2*A);
+
+  if(c == 1) {
+    if(step == 1) {
+      result = Math.min(x1, x2);
+      //console.log("first");
+    }
+    else {
+      result = Math.max(x1, x2);
+      //console.log("second");
+    }
+  }
+  else {
+    if(step == 1) {
+      result = Math.max(x1, x2);
+      //console.log("first");
+    }
+    else {
+      result = Math.min(x1, x2);
+      //console.log("second");
+    }
+  }
+
+
+  return result;
+}
+function pointing_y(x, a, b, d) {
+  var result;
+
+  result = d * x + b - a*d;
+
+  return result;
 }

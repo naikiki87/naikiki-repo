@@ -1,0 +1,112 @@
+/*
+  if(destpt_x >= startpt_x) {
+    console.log("arrow case 3");
+
+    m_arrow_x = destpt_x - arrow_len * 0.85;
+    m_arrow_x = destpt_x - arrow_len * 0.85;
+
+//    m_arrow_x = destpt_x * arrow_len;
+    m_arrow_y = degree * (m_arrow_x - startpt_x) + startpt_y;
+
+    console.log("Arrow x : " + m_arrow_x + ", Arrow y : " + m_arrow_y);
+
+//r_arrow_x = m_arrow_x + dif;
+
+
+    r_arrow_x = m_arrow_x * (1 + dif);
+    r_arrow_y = v_degree * (r_arrow_x - m_arrow_x) + m_arrow_y;
+
+    console.log("Arrow_r x : " + r_arrow_x + ", Arrow_r y : " + r_arrow_y);
+
+//l_arrow_x = m_arrow_x - dif;
+    l_arrow_x = m_arrow_x * (1 - dif);
+    l_arrow_y = v_degree * (l_arrow_x - m_arrow_x) + m_arrow_y;
+    console.log("Arrow_l x : " + l_arrow_x + ", Arrow_l y : " + l_arrow_y);
+  }
+  else {
+    console.log("arrow case 2");
+
+    m_arrow_x = destpt_x * (1/arrow_len);
+    m_arrow_y = degree * (m_arrow_x - startpt_x) + startpt_y;
+
+    console.log("Arrow x : " + m_arrow_x + ", Arrow y : " + m_arrow_y);
+
+    r_arrow_x = m_arrow_x * (1 + dif);
+    r_arrow_y = v_degree * (r_arrow_x - m_arrow_x) + m_arrow_y;
+
+    console.log("Arrow_r x : " + r_arrow_x + ", Arrow_r y : " + r_arrow_y);
+
+    l_arrow_x = m_arrow_x * (1 - dif);
+    l_arrow_y = v_degree * (l_arrow_x - m_arrow_x) + m_arrow_y;
+    console.log("Arrow_l x : " + l_arrow_x + ", Arrow_l y : " + l_arrow_y);
+  }
+*/
+/*
+  if(destpt_y <= startpt_y) {
+    if(destpt_x >= startpt_x) {
+      console.log("arrow case 1");
+
+      m_arrow_x = destpt_x * arrow_len;
+      m_arrow_y = degree * (m_arrow_x - startpt_x) + startpt_y;
+
+      console.log("Arrow x : " + m_arrow_x + ", Arrow y : " + m_arrow_y);
+
+      r_arrow_x = m_arrow_x * (1 + dif);
+      r_arrow_y = v_degree * (r_arrow_x - m_arrow_x) + m_arrow_y;
+
+      console.log("Arrow_r x : " + r_arrow_x + ", Arrow_r y : " + r_arrow_y);
+
+      l_arrow_x = m_arrow_x * (1 - dif);
+      l_arrow_y = v_degree * (l_arrow_x - m_arrow_x) + m_arrow_y;
+      console.log("Arrow_l x : " + l_arrow_x + ", Arrow_l y : " + l_arrow_y);
+
+
+
+    }
+    else {
+      console.log("arrow case 2");
+
+    }
+  }
+  else {
+    if(destpt_x >= startpt_x) {
+      console.log("arrow case 3");
+
+      m_arrow_x = destpt_x * arrow_len;
+      m_arrow_y = degree * (m_arrow_x - startpt_x) + startpt_y;
+
+      console.log("Arrow x : " + m_arrow_x + ", Arrow y : " + m_arrow_y);
+
+      r_arrow_x = m_arrow_x * (1 + dif);
+      r_arrow_y = v_degree * (r_arrow_x - m_arrow_x) + m_arrow_y;
+
+      console.log("Arrow_r x : " + r_arrow_x + ", Arrow_r y : " + r_arrow_y);
+
+      l_arrow_x = m_arrow_x * (1 - dif);
+      l_arrow_y = v_degree * (l_arrow_x - m_arrow_x) + m_arrow_y;
+      console.log("Arrow_l x : " + l_arrow_x + ", Arrow_l y : " + l_arrow_y);
+    }
+
+    else {
+      console.log("arrow case 4");
+    }
+  }
+  */
+
+/*
+  console.log("s_pot_x : " + startpt_x);
+  console.log("s_pot_y : " + startpt_y);
+  console.log("d_pot_x : " + destpt_x);
+  console.log("d_pot_y : " + destpt_y);
+*/
+/*
+  var svgdiv = document.getElementById('parent');
+  var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  line.setAttribute('id', 'linkid');
+  line.setAttribute('class', 'linkline');
+  //line.setAttribute('stroke-dasharray', "10, 5");
+  line.setAttribute('x1', startpt_x);
+  line.setAttribute('y1', startpt_y);
+  line.setAttribute('x2', destpt_x);
+  line.setAttribute('y2', destpt_y);
+  */

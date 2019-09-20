@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="KR">
+  <head>
+    <meta charset="UTF-8">
+    <title>Vertical Align</title>
+  </head>
+  <body>
+
+    <button onclick="cal_point()"> cliddk </button>
+
+    <script>
+
+      function test() {
+        console.log("Hello");
+      }
+
+      function cal_point() {
+        var deg;
+        var a, b, d, l;
+
+        var c;
+
+        a = 0;
+        b = 0;
+        d = 1;
+        l = 1;
+        c = 1;
+
+        var m_arrow_x = pointing_x(a, b, d, l, c);
+        var m_arrow_y = pointing_y(m_arrow_x, a, b, d);
+        //var xx = pointing(10, 10, 14, 1, 1);
+        console.log("x : " + m_arrow_x + ", y :" + m_arrow_y);
+      }
+
+      function pointing_x(a, b, d, l, c) {
+      //function pointing() {
+
+        var x1, x2, result;
+        //var y2 = b-(a*d);
+        //var y3 = y2 - b;
+
+        var A = 1 + (d*d);
+        var B = (-2*a*d*d) - (2*a);
+        var C = (a*a) + (a*a*d*d) - (l*l);
+
+
+        x1 = (-1*B + Math.sqrt(B*B - 4*A*C)) / (2*A);
+        x2 = (-1*B - Math.sqrt(B*B - 4*A*C)) / (2*A);
+
+        if(c == 1) {
+          result = Math.min(x1, x2);
+        }
+        else {
+          result = Math.max(x1, x2);
+        }
+
+        //console.log("x1 : " + x1 + ", y1 : " + y1);
+        //console.log("x2 : " + x2 + ", y2 : " + y2);
+
+        return result;
+      }
+      function pointing_y(x, a, b, d) {
+        var result;
+
+        result = d * x + b - a*d;
+
+        return result;
+      }
+
+
+    </script>
+  </body>
+</html>
