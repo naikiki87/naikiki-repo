@@ -1,0 +1,112 @@
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/jquery.treeview.css" />
+    <link rel="stylesheet" href="css/screen.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="lib/jquery.js" type="text/javascript"></script>
+    <script src="lib/jquery.cookie.js" type="text/javascript"></script>
+    <script src="lib/jquery.treeview.js" type="text/javascript"></script>
+    <title>CSS</title>
+
+    <script>
+      function alert_onclick() {
+        window.opener.createDIV();
+        window.close();
+      }
+    </script>
+
+  </head>
+  <body>
+    <button id="testbtn" onclick = "testBTN()"> click </button>
+    <input type=button value="alertTTT" onclick=alert_onclick()>
+    <div id="container">
+      <legend> Container </legend>
+      <div>dfsgdfg
+      <fieldset id="leftside1">
+        <legend> Navigator </legend>
+      <!--<div id="jb-content"> -->
+        <div>
+        	<div class="tree_header"> Navigator
+          </div>
+        	<ul id="tree">
+        		<li>
+        			<strong>Expression</strong>
+        			<ul>
+        				<li><a href="#">Parameter</a></li>
+        			</ul>
+        		</li>
+        		<li>
+        			<strong>Display</strong>
+        			<ul>
+        				<li><a href="#">Export</a></li>
+        			</ul>
+        		</li>
+        	</ul>
+        </div>
+      <!-- </div> -->
+    </fieldset>
+
+
+    <fieldset id="leftside2">
+      <legend> Activity Tasks </legend>
+    <!--<div id="jb-content"> -->
+      <div>
+        <div class="tree_header"> Navigator
+        </div>
+        <ul id="tree">
+          <li>
+            <strong>Expression</strong>
+            <ul>
+              <li><a href="#">Parameter</a></li>
+            </ul>
+          </li>
+          <li>
+            <strong>Display</strong>
+            <ul>
+              <li><a href="#">Export</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    <!-- </div> -->
+  </fieldset>
+  </div>
+
+      <fieldset class="fieldset">
+        <legend> Viewport </legend>
+      </fieldset>
+</fieldset>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+
+
+    function testBTN() {
+    Vue.component('component-d', {
+      template: `<div id="div4" class='div-content'>
+        <p class='no-drag'> BOX </p>
+      </div>`
+      //'<div> hello world CCC !!!</div>'
+    })
+    new Vue({
+      el: '#app'
+    })
+  }
+
+        $(function() {
+    			$("#tree").treeview({
+    				collapsed: true,
+    				animated: "medium",
+    				control:"#sidetreecontrol",
+    				persist: "location"
+    			});
+    		})
+
+          </script>
+  </body>
+</html>

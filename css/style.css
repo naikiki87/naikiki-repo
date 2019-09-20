@@ -1,0 +1,122 @@
+/*#container {
+  position: absolute;
+  padding : 0px;
+  margin : 0px;
+  left : 0px;
+}
+*/
+.linkline {
+  stroke:black;
+  stroke-width:2;
+  pointer-events:auto;
+}
+#parent {
+  width : 1200px;
+  height : 666px;
+  position: absolute;
+  border: 0px;
+  padding : 0px;
+  margin : 0px;
+  border : 0px solid blue;
+  pointer-events:none;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 70px;
+  height: 34px;
+  vertical-align:middle;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.toggle {
+  margin:0px;
+  display:inline-block;
+  font-size:15px;
+  font-weight:bold;
+  -ms-user-select: none;
+  -moz-user-select:-moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select:none;
+}
+.div-content {
+    width: 70px;
+    height: 70px;
+    background-color:white;
+    color:black;
+    padding:0px;
+    float:left;
+    margin:0px;
+    text-align:center;
+    border:2px solid;
+    }
+.no-drag {
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select:none;
+  pointer-events : none;
+}
+#contents div:hover{
+  background:blue;
+  color:white;
+ }
+
+ .linkline:hover{
+   stroke : pink;
+   stroke-width:12;
+   stroke-dasharray : "10, 5";
+
+  }
