@@ -2,12 +2,14 @@
 
   /* 마우스 오른쪽 메뉴 변수 */
   var test = document.getElementById("context-menus");
+  //var test = document.getElementByClassName(".div-content");
 
   /* 마우스 클릭 리스너를 초기 실행시킨다. */
 
   function init() {
     rightMouseListener();
     leftMouseListener();
+    console.log(element);
   }
 
   /* 마우스 왼클릭 감지 */
@@ -21,6 +23,7 @@
 
   /* 마우스 우클릭 감지 */
   function rightMouseListener() {
+    //element.addEventListener("contextmenu", function(e) {
     document.addEventListener("contextmenu", function(e) {
       event.preventDefault();
       toggleOnOff(1);

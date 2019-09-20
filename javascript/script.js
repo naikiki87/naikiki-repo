@@ -38,7 +38,24 @@ var divE1, divE2;
 var divwid1, divhei1, divwid2, divhei2;
 var div_cnt = 0;
 
+var test2 = document.getElementById("context-menus");
+//var contextmenu = document.getElementByClassName(".div-content");
+/*
+function toggleOnOff(num) {
+  num === 1 ? test.classList.add("active") : test.classList.remove("active");
+}
 
+function showMenu(x, y) {
+
+
+  //test.setAttribute('style', "top :" + y + "px; left : "+x+"px");
+  console.log("here test");
+  test.style.top = y + "px";
+  test.style.left = x + "px";
+
+}
+*/
+/*
 function createDIV() {
   var obj = document.getElementById("contents");
   var newDIV = document.createElement("div");
@@ -53,6 +70,7 @@ function createDIV() {
   obj.appendChild(newDIV);
 
 }
+*/
 
 var check = $("input[type='checkbox']");
 check.click(function(){
@@ -74,12 +92,23 @@ $(function() {
     var p = this.parentElement; // 부모 HTML 태그 요소
     p.removeChild(this);
   });
+
   $(document).on("contextmenu",".div-content",function(){
     event.preventDefault();
-    //event.stopPropagation();
-    //alert("Left clicked");
-    console.log("left clicked");
+
+    console.log(event.target.id);
+
+    test2.style.left = event.clientX + "px";
+    test2.style.top = event.clientY + "px";
+    test2.classList.add("active");
+    console.log(event.clientX);
   });
+
+  $(document).on("click","*",function(){
+    test2.classList.remove("active");
+  });
+
+
   $("div").bind({
     mousedown : function(event) {
       event.stopPropagation();

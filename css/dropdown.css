@@ -1,48 +1,35 @@
-h1 {
-  margin: 20px auto 50px;
-  display: table;
-}
-
-
 /* 화면 글 상자 */
-
-.task {
-  margin: 20px auto;
-  width: 80%;
-  border-radius: 20px;
-}
-
-.task > ul {
-  padding: 15px;
-  list-style: none;
-  color: white;
-  vertical-align: middle;
-}
-
-#task1 {
-  background-color: #3A3531;
-}
-
 /* 마우스 메뉴 */
 
 .context-menus {
+  padding : 0px;
   position: absolute;
   display: none;
-  border: 1px solid black;
-  width: 100px;
+  border: 1px solid grey;
+  width: 70px;
   text-align: center;
 }
 
 .context-menus.active {
   display: block;
-  background-color: white;
+  background-color: #e6e6e6;
 }
 
 .context-menus.active>ul>li {
+  float : left;
   list-style: none;
-  padding: 10px;
+  padding: 0px;
+  color : blue;
+  text-align: left;
 }
 
-.context-menus.active>ul>li:hover {
-  background-color: lightgreen;
+.context-menus.active>p:hover {
+  background-color: #a4a4a4;
+}
+
+.context-menus.active>ul>p:hover {
+  background-color: #a4a4a4;
+}
+.context-p {
+
 }
