@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/ServManagecss.css" />
+
+  </head>
+  <body>
+    <div id = "header"> header </div>
+    <div id = "view_section">view section
+      <my-global-component></my-global-component>
+    </div>
+    <div id = "input_section"> input section
+      <input-id></input-id>
+      <input-port></input-port>
+      <input-rootid></input-rootid>
+      <input-password></input-password>
+      <input-outputcompid></input-outputcompid>
+      <input-modulename></input-modulename>
+      <input-description></input-description>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      Vue.component('my-global-component', {
+        template: '<form name="form1"><input type="checkbox" name="cb1" value="1"> C# <br /><input type="button" value="확인" onclick="Check(this.form);"> </form>'
+      });
+      // 지역 컴포넌트 내용
+      var cmp = {
+        template: '<div>지역 컴포넌트 입니다.</div>'
+      };
+      var inputid = {
+        template: '<input> </input>'
+      };
+      new Vue({
+        el: '#view_section',
+        // 지역 컴포넌트 등록
+        components: {
+          'my-local-component': cmp,
+          'my-local-component2': cmp
+        }
+      });
+      // 두 번째 인스턴스
+      new Vue({
+        el: '#input_section',
+        components: {
+          'input-id' : inputid
+        }
+      });
+    </script>
+  </body>
+</html>

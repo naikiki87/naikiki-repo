@@ -1,0 +1,92 @@
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>check박스 체크 여부 확인하기</title>
+
+  <script type="text/javascript">
+    function CheckForm(Join){
+
+        //체크박스 체크여부 확인 [하나]
+        var chk1=document.frmJoin.U_checkAgreement1.checked;
+        var chk2=document.frmJoin.U_checkAgreement2.checked;
+
+        if(!chk1){
+            alert('약관1에 동의해 주세요');
+            return false;
+        }
+        if(!chk2) {
+            alert('약관2에 동의해 주세요');
+            return false;
+        }
+
+        //체크박스 체크여부 확인 [동일 이름을 가진 체크박스 여러개일 경우]
+        var isSeasonChk = false;
+        var arr_Season = document.getElementsByName("SEASON[]");
+        for(var i=0;i<arr_Season.length;i++){
+            if(arr_Season[i].checked == true) {
+                isSeasonChk = true;
+                break;
+            }
+        }
+
+        if(!isSeasonChk){
+            alert("계절의 종류를 한개 이상 선택해주세요.");
+            return false;
+        }
+
+    }
+
+
+ </script>
+ </head>
+ <body>
+
+
+<form name="frmJoin" action=""  onSubmit="return CheckForm(this)">
+    <input type="checkbox" name="U_checkAgreement1" id="U_checkAgreement1" value="" /> 약관동의
+    <input type="checkbox" name="U_checkAgreement2" id="U_checkAgreement2" value="" /> 약관동의
+
+    <br/>
+    <br/>
+    <input type="checkbox" id="spring" name="SEASON[]" value="1" />봄
+    <input type="checkbox" id="summer" name="SEASON[]" value="2" />여름
+    <input type="checkbox" id="fall" name="SEASON[]" value="3" />가을
+    <input type="checkbox" id="windter" name="SEASON[]" value="4" />겨울
+    <br/>
+    <br/>
+    <input type="submit" value="전송">
+</form>
+
+ </body>
+</html>
+
+
+
+<script type="text/javascript">
+  <!--
+   function Check(form)
+
+   {
+        //'확인' 버튼을 클릭했을 때 실행되는 메서드
+        var msg = "";
+
+
+
+        if (form.cb1.checked)
+             msg += form.cb1.value + "\n";
+        if (form.cb2.checked)
+             msg += form.cb2.value + "\n";
+        if (form.cb3.checked)
+             msg += form.cb3.value + "\n";
+
+        alert(msg);
+   }
+  //-->
+</script>
+
+         <form name="form1">
+               <input type="checkbox" name="cb1" value="1"> C# <br />
+               <input type="checkbox" name="cb2" value="2"> ASP.NET <br />
+               <input type="checkbox" name="cb3" value="3"> XML <br />
+               <input type="button" value="확인" onclick="Check(this.form);">
+          </form>

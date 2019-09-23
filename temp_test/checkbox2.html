@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    <style>
+  table {
+    width: 100%;
+    border: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  thead, tbody, th, td {
+    border: 1px solid #444444;
+  }
+  </style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script type="text/javascript">
+$(window).load(function(){
+    $("input[name='chk_all']").click(function () {
+        var chk_listArr = $("input[name='chk_list']");
+        for (var i=0; i < chk_listArr.length; i++) {
+            chk_listArr[i].checked = this.checked;
+        }
+    });
+
+    $("input[name='chk_list']").click(function () { //리스트 항목이 모두 선택되면 전체 선택 체크
+        if ($("input[name='chk_list']:checked").length == 5) {
+            $("input[name='chk_all']")[0].checked = true;
+        } else  {                                                //리스트 항목 선택 시 전체 선택 체크를 해제함
+            $("input[name='chk_all']")[0].checked = false;
+        }
+    });
+
+});
+
+/**
+ * 선택된 체크박스의 값을 배열에 담는다
+ */
+function checkSelectedValue(){
+    var valueArr = new Array();
+    var list = $("input[name='chk_list']");
+    for(var i = 0; i < list.length; i++){
+        if(list[i].checked){ //선택되어 있으면 배열에 값을 저장함
+            valueArr.push(list[i].value);
+        }
+    }
+
+    //선택된 체크박스의 값을 콘솔에 출력
+    var str = '';
+    for(var i in valueArr){
+        str += valueArr[i]+'<br />';
+    }
+    $('#dibugConsole').html(str);
+}
+</script>
+</head>
+<body>
+
+  <table id="check_table">
+
+    <thead>
+         <tr>
+            <th> </th>
+            <th style="width: 230px;"> Job Type </th>
+         </tr>
+    </thead>
+
+    <tbody>
+         <tr>
+            <td style="width: 30px;">
+               <input type="checkbox" id="chk_list" name="chk_list" value="list1" />
+            </td>
+            <td style="width: 200px;">
+                 [1] 리스트 영역
+            </td>
+         </tr>
+         <tr>
+            <td style="width: 30px;">
+               <input type="checkbox" id="chk_list" name="chk_list" value="list2" />
+            </td>
+            <td style="width: 230px;">
+                 [2] 리스트 영역
+            </td>
+         </tr>
+         <tr>
+            <td style="width: 30px;">
+               <input type="checkbox" id="chk_list" name="chk_list" value="list3" />
+            </td>
+            <td style="width: 230px;">
+                 [3] 리스트 영역
+            </td>
+         </tr>
+         <tr>
+            <td style="width: 30px;">
+               <input type="checkbox" id="chk_list" name="chk_list" value="list4" />
+            </td>
+            <td style="width: 230px;">
+                 [4] 리스트 영역
+            </td>
+         </tr>
+         <tr>
+            <td style="width: 30px;">
+               <input type="checkbox" id="chk_list" name="chk_list" value="list5" />
+            </td>
+            <td style="width: 230px;">
+                 [5] 리스트 영역
+            </td>
+         </tr>
+    </tbody>
+  </table>
+  <button onclick="checkSelectedValue();">선택영역 확인</button>
+  <div id="dibugConsole">
+  </div>
+
+</body>
+</html>
