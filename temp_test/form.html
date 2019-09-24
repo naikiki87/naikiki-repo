@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .input_name {
+        width : 200px;
+      }
+    </style>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  </head>
+  <body>
+    <h1>동적 테이블</h1>
+    <table border="1" id="list_table">
+    <colgroup>
+    	<col style="width: 100px">
+    	<col style="width: 200px">
+    	<col style="width: 300px">
+    	<col style="width: 200px">
+      <col style="width: 200px">
+    </colgroup>
+
+    <thead>
+    	<tr>
+    		<th>ID</th>
+    		<th>Input Port</th>
+    		<th>Root ID</th>
+    		<th>Password</th>
+        <th>Delete</th>
+    	</tr>
+    </thead>
+    <tbody>
+    	<tr>
+    		<td>1</td>
+    		<td>홍길동</td>
+    		<td>2001/02/24</td>
+        <td>2001/02/24</td>
+    		<td>
+    			<a href="#" class="delete-link">삭제</a>
+    		</td>
+    	</tr>
+    </tbody>
+    </table>
+    <br><br>
+    <h3>추가 입력 테이블</h3>
+    <p class = "input_name"> ID : <input class="autoInc" type="text" id="add_ID"> </p>
+    <p class = "input_name">Input Port : <input type="text" id="add_Port"></p>
+    <p class = "input_name">Root ID : <input type="text" id="add_RootID"></p>
+    <p class = "input_name">Password : <input type="text" id="add_Password"></p>
+    <button type="button" id="append_row">데이터 추가</button>
+
+    <script type="text/javascript">
+
+    // 추가
+    $("#append_row").on("click", function() {
+      var temp = document.getElementById("add_ID").value;
+      var len = Number($("#list_table tr").length);
+      var len2;
+      var index;
+      len -= 1;
+      index = (len - 1) * 5;
+
+      console.log("len : " + len);
+
+      var str = document.getElementsByTagName('td')[index].childNodes[0].nodeValue;
+      console.log("latest : "+ str);
+
+      if(temp == '') return;
+
+  	  $("#list_table").append(
+    		$("<tr>").append(
+          $("<td>").append( Number(str) + 1 ),
+    			$("<td>").append( $("#add_Port").val() ),
+    			$("<td>").append( $("#add_RootID").val() ),
+          $("<td>").append( $("#add_Password").val() ),
+    			$("<td>").append(
+    				$("<a>").prop("href", "#").addClass("delete-link").append("삭제")
+    			)
+    		)
+    	);
+      $("#add_ID").val('');
+      $("#add_Port").val('');
+      $("#add_RootID").val('');
+      $("#add_Password").val('');
+
+
+      len2 = len + 1;
+      console.log("#row : " + len2);
+    });
+
+    // 삭제
+    $("#list_table").on("click", ".delete-link", function () {
+    	$(this).parent().parent().remove();
+    });
+    </script>
+  </body>
+</html>
