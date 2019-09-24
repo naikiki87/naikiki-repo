@@ -35,9 +35,10 @@
         	<col style="width: 10%"> <!-- password -->
           <col style="width: 10%"> <!-- status -->
           <col style="width: 5%"> <!-- delete -->
+          <col style="width: 5%"> <!-- show -->
         </colgroup>
         <thead>
-          <th id="svr_list_header" colspan = 10> Compute Server List</th>
+          <th id="svr_list_header" colspan = 11> Compute Server List</th>
         	<tr>
         		<th class="svr_list_title">ID</th>
         		<th class="svr_list_title">INPUT PORT</th>
@@ -49,6 +50,7 @@
         		<th class="svr_list_title">Module</th>
             <th class="svr_list_title">Description</th>
             <th class="svr_list_title">Delete</th>
+            <th class="svr_list_title">SHOW</th>
         	</tr>
         </thead>
         <tbody>
@@ -62,9 +64,10 @@
             <td></td>
             <td></td>
             <td></td>
-        		<td>
-        			<a href="#" class="delete-link">삭제</a>
-        		</td>
+            <td></td>
+        		<td></td>
+        			<!--<a href="#" class="delete-link">삭제</a>
+        		</td>-->
         	</tr>
         </tbody>
       </table>
@@ -95,7 +98,7 @@
           <td> <input class="input_box" type="text" id="add_Role"> </td>
         </tr>
         <tr>
-          <td> Output Computer ID </td>
+          <td> Output Comp ID </td>
           <td> <input class="input_box" type="text" id="add_OutCompID"> </td>
         </tr>
         <tr>
@@ -108,31 +111,26 @@
         </tr>
         <br></br>
 
-        <button type="button" id="append_row" style="float:right; font-size:15px; font-weight : bold;" onclick="test()">데이터 추가</button>
+        <button type="button" id="append_row" style="float:right; font-size:15px; font-weight : bold;" onclick="test()">서버 추가</button>
       </div>
     </script>
     <script>
       Vue.component('view-section', {
-        //template: '<form name="form1"><input type="checkbox" name="cb1" value="1"> C# <br /><input type="button" value="확인" onclick="Check(this.form);"> </form>'
         template: '#view-template'
       });
 
       Vue.component('input-section', {
-        //template: '<form name="form1"><input type="checkbox" name="cb1" value="1"> C# <br /><input type="button" value="확인" onclick="Check(this.form);"> </form>'
         template: '#input-template'
       });
 
+      // view section
       new Vue({
         el: '#view_section'
       });
-      // 두 번째 인스턴스
+      // input section
       new Vue({
         el: '#input_section'
       });
-
-      function test() {
-
-      }
 
       $("#append_row").on("click", function() {
         var len = Number($("#list_table tr").length);
@@ -140,7 +138,7 @@
         var index;
         len -= 1;
         console.log("len2 : " + len);
-        index = (len - 1) * 10;
+        index = (len - 1) * 11;
 
         console.log("index : " + index);
 
@@ -161,7 +159,10 @@
             $("<td>").append( $("#add_Module").val() ),
             $("<td>").append( $("#add_Description").val() ),
       			$("<td>").append(
-      				$("<a>").prop("href", "#").addClass("delete-link").append("삭제")
+      				$("<a>").prop("href", "#").addClass("delete-link").append("DEL")
+      			),
+            $("<td>").append(
+      				$("<a>").prop("href", "https://naikiki87.github.io/naikiki-repo/mainUI.html").addClass("show-link").append("SHOW")
       			)
       		)
       	);
@@ -178,6 +179,10 @@
 
       $("#list_table").on("click", ".delete-link", function () {
       	$(this).parent().parent().remove();
+      });
+
+      $("#list_table").on("click", ".show-link", function () {
+      	console.log("Hello");
       });
 
     </script>
