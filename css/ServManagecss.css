@@ -9,6 +9,8 @@ th, td {
   height : 37px;
   padding : 5px;
   border : 1px solid #d8d8d8;
+  background : #fafafa
+
 }
 
 .svr_list_title {
@@ -29,6 +31,7 @@ th, td {
 
 #data_append tr td {
   border: 0px;
+  background : #eff8fb;
 }
 
 
@@ -54,20 +57,28 @@ div {
   padding : 0px;
   margin : 0px;
   font-size: 15px;
-  position : absolute;
+
 
 }
 
+#wrap {
+  position : absolute;
+  top:13%;
+  left:5%;
+  width : 1400px;
+  height:800px;
+}
+
 #header {
-  width : 1000px;
-  height:70px;
+  position : absolute;
+  top : -2%;
+  left : 30%;
+  height : 100px;
+  margin:-50px 0 0 -50px;
 
 }
 #header_title {
   width : 700px;
-  height:30px;
-  top : 35%;
-  left : 25%;
   font-weight: bold;
   font-size: 30px;
 }
@@ -83,9 +94,12 @@ div {
 
 #view_section {
   padding : 10px;
-  top : 100px;
-  width : 750px;
-  height : 670px;
+  /*top : 100px;
+  top : 15%;
+  left : 10%;
+  */
+  width : 75%;
+  height : 700px;
 
   border : 1px solid #a4a4a4;
   float : left;
@@ -93,10 +107,10 @@ div {
 }
 #input_section {
   padding : 10px;
-  top : 100px;
-  left : 785px;
-  width : 250px;
-  height : 670px;
+  margin-left : 5px;
+
+  width : 20%;
+  height : 700px;
   background : #eff8fb;
   border : 1px solid #a4a4a4;
   float : left;

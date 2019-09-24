@@ -6,45 +6,62 @@
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
-    <div id = "header">
-      <div id="header_title">COMPUTING SERVER MANAGEMENT</div>
-    </div>
-    <div id = "view_section">
-      <view-section></view-section>
-    </div>
-    <div id = "input_section">
-      <input-section></input-section>
-    </div>
 
+    <div id = "wrap">
+
+      <div id = "header">
+        <div id="header_title">COMPUTING SERVER MANAGEMENT</div>
+      </div>
+
+      <div id = "view_section">
+        <view-section></view-section>
+      </div>
+
+      <div id = "input_section">
+        <input-section></input-section>
+      </div>
+
+    </div>
     <script type="text/x-template" id="view-template">
       <table id="list_table">
       <colgroup>
 
         	<col style="width: 5%"> <!-- ID -->
-        	<col style="width: 18%"> <!-- Input port -->
-        	<col style="width: 18%"> <!-- root ID -->
-        	<col style="width: 18%"> <!-- password -->
-          <col style="width: 31%"> <!-- status -->
-          <col style="width: 10%"> <!-- delete -->
+        	<col style="width: 10%"> <!-- Input port -->
+        	<col style="width: 10%"> <!-- root ID -->
+        	<col style="width: 10%"> <!-- password -->
+          <col style="width: 20%"> <!-- status -->
+          <col style="width: 10%"> <!-- root ID -->
+        	<col style="width: 10%"> <!-- password -->
+          <col style="width: 10%"> <!-- status -->
+          <col style="width: 5%"> <!-- delete -->
         </colgroup>
         <thead>
-          <th id="svr_list_header" colspan = 6> Compute Server List</th>
+          <th id="svr_list_header" colspan = 10> Compute Server List</th>
         	<tr>
         		<th class="svr_list_title">ID</th>
         		<th class="svr_list_title">INPUT PORT</th>
         		<th class="svr_list_title">root ID</th>
         		<th class="svr_list_title">PASSWORD</th>
             <th class="svr_list_title">STATUS(CPU, Memory)</th>
-            <th class="svr_list_title">DELETE</th>
+            <th class="svr_list_title">Role</th>
+        		<th class="svr_list_title">Out Com ID</th>
+        		<th class="svr_list_title">Module</th>
+            <th class="svr_list_title">Description</th>
+            <th class="svr_list_title">Delete</th>
         	</tr>
         </thead>
         <tbody>
         	<tr style="display:none;">
         		<td>0</td>
-        		<td>홍길동</td>
-        		<td>2001/02/24</td>
-            <td>2001/24</td>
-            <td>2001</td>
+        		<td></td>
+        		<td></td>
+            <td></td>
+            <td></td>
+        		<td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         		<td>
         			<a href="#" class="delete-link">삭제</a>
         		</td>
@@ -73,6 +90,22 @@
           <td> Password </td>
           <td> <input class="input_box" type="text" id="add_Password"> </td>
         </tr>
+        <tr>
+          <td> Role </td>
+          <td> <input class="input_box" type="text" id="add_Role"> </td>
+        </tr>
+        <tr>
+          <td> Output Computer ID </td>
+          <td> <input class="input_box" type="text" id="add_OutCompID"> </td>
+        </tr>
+        <tr>
+          <td> Module Name </td>
+          <td> <input class="input_box" type="text" id="add_Module"> </td>
+        </tr>
+        <tr>
+          <td> Description </td>
+          <td> <input class="input_box" type="text" id="add_Description"> </td>
+        </tr>
         <br></br>
 
         <button type="button" id="append_row" style="float:right; font-size:15px; font-weight : bold;" onclick="test()">데이터 추가</button>
@@ -98,21 +131,21 @@
       });
 
       function test() {
-        console.log("Hello");
+
       }
 
       $("#append_row").on("click", function() {
-        var temp = document.getElementById("add_ID").value;
         var len = Number($("#list_table tr").length);
-        var len2;
+        console.log("len1 : " + len);
         var index;
         len -= 1;
-        index = (len - 1) * 6;
+        console.log("len2 : " + len);
+        index = (len - 1) * 10;
 
-        console.log("len : " + len);
+        console.log("index : " + index);
 
         var str = document.getElementsByTagName('td')[index].childNodes[0].nodeValue;
-        console.log("latest : "+ str);
+        console.log("AAA : "+ str);
 
         //if(temp == '') return;
 
@@ -122,7 +155,11 @@
       			$("<td>").append( $("#add_Port").val() ),
       			$("<td>").append( $("#add_RootID").val() ),
             $("<td>").append( $("#add_Password").val() ),
-            $("<td>").append(  ),
+            $("<td>").append( ),
+            $("<td>").append( $("#add_Role").val() ),
+            $("<td>").append( $("#add_OutCompID").val() ),
+            $("<td>").append( $("#add_Module").val() ),
+            $("<td>").append( $("#add_Description").val() ),
       			$("<td>").append(
       				$("<a>").prop("href", "#").addClass("delete-link").append("삭제")
       			)
@@ -132,10 +169,10 @@
         $("#add_Port").val('');
         $("#add_RootID").val('');
         $("#add_Password").val('');
-
-
-        len2 = len + 1;
-        console.log("#row : " + len2);
+        $("#add_Role").val('');
+        $("#add_OutCompID").val('');
+        $("#add_Module").val('');
+        $("#add_Description").val('');
       });
 
 
