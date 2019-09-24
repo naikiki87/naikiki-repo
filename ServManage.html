@@ -1,51 +1,148 @@
 <html>
   <head>
     <link rel="stylesheet" href="css/ServManagecss.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
   </head>
   <body>
-    <div id = "header"> header </div>
-    <div id = "view_section">view section
-      <my-global-component></my-global-component>
-    </div>
-    <div id = "input_section"> input section
-      <input-id></input-id>
-      <input-port></input-port>
-      <input-rootid></input-rootid>
-      <input-password></input-password>
-      <input-outputcompid></input-outputcompid>
-      <input-modulename></input-modulename>
-      <input-description></input-description>
-    </div>
-
-
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <div id = "header">
+      <div id="header_title">COMPUTING SERVER MANAGEMENT</div>
+    </div>
+    <div id = "view_section">
+      <view-section></view-section>
+    </div>
+    <div id = "input_section">
+      <input-section></input-section>
+    </div>
+
+    <script type="text/x-template" id="view-template">
+      <table id="list_table">
+      <colgroup>
+
+        	<col style="width: 5%"> <!-- ID -->
+        	<col style="width: 18%"> <!-- Input port -->
+        	<col style="width: 18%"> <!-- root ID -->
+        	<col style="width: 18%"> <!-- password -->
+          <col style="width: 31%"> <!-- status -->
+          <col style="width: 10%"> <!-- delete -->
+        </colgroup>
+        <thead>
+          <th id="svr_list_header" colspan = 6> Compute Server List</th>
+        	<tr>
+        		<th class="svr_list_title">ID</th>
+        		<th class="svr_list_title">INPUT PORT</th>
+        		<th class="svr_list_title">root ID</th>
+        		<th class="svr_list_title">PASSWORD</th>
+            <th class="svr_list_title">STATUS(CPU, Memory)</th>
+            <th class="svr_list_title">DELETE</th>
+        	</tr>
+        </thead>
+        <tbody>
+        	<tr style="display:none;">
+        		<td>0</td>
+        		<td>홍길동</td>
+        		<td>2001/02/24</td>
+            <td>2001/24</td>
+            <td>2001</td>
+        		<td>
+        			<a href="#" class="delete-link">삭제</a>
+        		</td>
+        	</tr>
+        </tbody>
+      </table>
+    </script>
+
+    <script type="text/x-template" id="input-template">
+
+      <div id="data_append">
+        <h3> Data Append </h3>
+        <tr style="display:none;">
+          <td> Input  </td>
+          <td> <input class="input_box" type="text" id="add_ID"> </td>
+        </tr>
+        <tr>
+          <td> Input Port </td>
+          <td> <input class="input_box" type="text" id="add_Port"> </td>
+        </tr>
+        <tr>
+          <td> root ID </td>
+          <td> <input class="input_box" type="text" id="add_RootID"> </td>
+        </tr>
+        <tr>
+          <td> Password </td>
+          <td> <input class="input_box" type="text" id="add_Password"> </td>
+        </tr>
+        <br></br>
+
+        <button type="button" id="append_row" style="float:right; font-size:15px; font-weight : bold;" onclick="test()">데이터 추가</button>
+      </div>
+    </script>
     <script>
-      Vue.component('my-global-component', {
-        template: '<form name="form1"><input type="checkbox" name="cb1" value="1"> C# <br /><input type="button" value="확인" onclick="Check(this.form);"> </form>'
+      Vue.component('view-section', {
+        //template: '<form name="form1"><input type="checkbox" name="cb1" value="1"> C# <br /><input type="button" value="확인" onclick="Check(this.form);"> </form>'
+        template: '#view-template'
       });
-      // 지역 컴포넌트 내용
-      var cmp = {
-        template: '<div>지역 컴포넌트 입니다.</div>'
-      };
-      var inputid = {
-        template: '<input> </input>'
-      };
+
+      Vue.component('input-section', {
+        //template: '<form name="form1"><input type="checkbox" name="cb1" value="1"> C# <br /><input type="button" value="확인" onclick="Check(this.form);"> </form>'
+        template: '#input-template'
+      });
+
       new Vue({
-        el: '#view_section',
-        // 지역 컴포넌트 등록
-        components: {
-          'my-local-component': cmp,
-          'my-local-component2': cmp
-        }
+        el: '#view_section'
       });
       // 두 번째 인스턴스
       new Vue({
-        el: '#input_section',
-        components: {
-          'input-id' : inputid
-        }
+        el: '#input_section'
       });
+
+      function test() {
+        console.log("Hello");
+      }
+
+      $("#append_row").on("click", function() {
+        var temp = document.getElementById("add_ID").value;
+        var len = Number($("#list_table tr").length);
+        var len2;
+        var index;
+        len -= 1;
+        index = (len - 1) * 6;
+
+        console.log("len : " + len);
+
+        var str = document.getElementsByTagName('td')[index].childNodes[0].nodeValue;
+        console.log("latest : "+ str);
+
+        //if(temp == '') return;
+
+    	  $("#list_table").append(
+      		$("<tr>").append(
+            $("<td>").append( Number(str) + 1 ),
+      			$("<td>").append( $("#add_Port").val() ),
+      			$("<td>").append( $("#add_RootID").val() ),
+            $("<td>").append( $("#add_Password").val() ),
+            $("<td>").append(  ),
+      			$("<td>").append(
+      				$("<a>").prop("href", "#").addClass("delete-link").append("삭제")
+      			)
+      		)
+      	);
+        $("#add_ID").val('');
+        $("#add_Port").val('');
+        $("#add_RootID").val('');
+        $("#add_Password").val('');
+
+
+        len2 = len + 1;
+        console.log("#row : " + len2);
+      });
+
+
+      $("#list_table").on("click", ".delete-link", function () {
+      	$(this).parent().parent().remove();
+      });
+
     </script>
   </body>
 </html>
