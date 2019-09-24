@@ -19,7 +19,7 @@
 
       </section>
 
-      <button onclick="test()"> click </button>
+      <!--<button onclick="test()"> click </button>-->
 
     <script type=”text/html” src=”superheroes.json”></script>
     <script>
@@ -38,13 +38,23 @@
     request.open('GET', requestURL);
     request.responseType = 'json';
     request.send();
+    request.onload = function() {
+      var superHeroes = request.response;
 
+      console.log(superHeroes['homeTown']);
+      //populateHeader(superHeroes);
+      //showHeroes(superHeroes);
+    }
+
+
+/*
     function test() {
       var superHeroes = request.response;
       console.log(superHeroes['homeTown']);
       populateHeader(superHeroes);
       showHeroes(superHeroes);
     }
+*/
 
     function populateHeader(jsonObj) {
       var myH1 = document.createElement('h1');
@@ -56,14 +66,6 @@
       header.appendChild(myPara);
     }
 
-/*
-    request.onload = function() {
-      var superHeroes = request.response;
-      console.log(superHeroes['homeTown']);
-      populateHeader(superHeroes);
-      showHeroes(superHeroes);
-    }
-*/
 
     function showHeroes(jsonObj) {
       var heroes = jsonObj['members'];
