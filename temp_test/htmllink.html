@@ -9,12 +9,15 @@ Jquery버전은 상관없다.
 <script type="text/javascript">
 //페이지가 로드되면 실행한다.
 $(document).ready( function() {
-	$("#contents").load("testContents.html");
+  $("#testBtn").click(function(){
+    $("#contents").load("testContents.html");
+  });
 	//~이렇게 한줄만 해주면 알아서 contents에 testContents.html파일을 넣어 준다.
 });
 </script>
 </head>
 <body>
+  <button id="testBtn"> click </button>
 <div id="header">이부분은 헤더</div>
 <div id="contents">
 
