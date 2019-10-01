@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/tab.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <style>
+    .tab-list {list-style:none !important;margin-left:0 !important;}
+    .tab-list li {display:inline-block; margin-right:10px; border : 1px solid; width : 100px; text-align : center;}
+
+    .tab-list li:last-child::after {display:none;}
+    .tab-list .active::after {content:"▼ ";}
+    </style>
+
+  </head>
+  <body>
+    <ul class="tab-list">
+    <li>
+        <a
+            href="javascript:oksSwitchTab('tb_1', 'content_1');"
+            id="tb_1"
+            class="tabmenu active">Tab 1</a>
+    </li>
+    <li>
+        <a
+            href="javascript:oksSwitchTab('tb_2', 'content_2');"
+            id="tb_2"
+            class="tabmenu">Tab 2</a>
+    </li>
+    <li>
+        <a
+            href="javascript:oksSwitchTab('tb_3', 'content_3');"
+            id="tb_3"
+            class="tabmenu">Tab 3</a>
+    </li>
+</ul>
+<div id="content_1" class="tabcontent">content 1</div>
+<div id="content_2" class="tabcontent">content 2</div>
+<div id="content_3" class="tabcontent">content 3</div>
+
+<script type="text/javascript">
+  function oksSwitchTab(tab_id, tab_content) {
+      // first of all we get all tab content blocks (I think the best way to get them
+      // by class names)
+      var x = document.getElementsByClassName("tabcontent");
+      var i;
+      for (i = 0; i < x.length; i++) {
+          x[i].style.display = 'none'; // hide all tab content
+      }
+      document.getElementById(tab_content).style.display = 'block'; // display the content of the tab we need
+
+      // now we get all tab menu items by class names (use the next code only if you need to highlight current tab)
+      var x = document.getElementsByClassName("tabmenu");
+      var i;
+
+      for (i = 0; i < x.length; i++) {
+          x[i].className = 'tabmenu';
+        }
+        console.log(tab_id);
+      document.getElementById(tab_id).className = 'tabmenu active';
+
+  }
+</script>
+
+  </body>
+</html>

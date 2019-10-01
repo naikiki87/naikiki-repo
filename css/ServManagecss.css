@@ -57,16 +57,115 @@ div {
   padding : 0px;
   margin : 0px;
   font-size: 15px;
+}
+.tab_menu {
+  position:absolute;
+  left:1%;
+  width : 1400px;
+  height : 34px;
+  padding : 0px;
+  padding-left : 10px;
 
+  margin : 0px;
 
 }
 
+
+.tab-list {
+  padding : 6px;
+}
+
+.tab-list div {
+  float : left;
+  display:inline-block;
+  top : 0px;
+  padding : 2px;
+  margin : 0px;
+  margin-right:3px;
+  border : 1px solid;
+  width : 155px;
+  text-align : center;
+  font-size : 16px;
+  border-radius: 4px;
+  background: #f2f2f2;
+  color : black;
+}
+
+.tab-list .active::after {
+  /* content:"ㆍ"; */
+
+}
+
+.tab-list .active {
+  font-size : 17px;
+  background: #a9d0f5;
+  font-weight : bold;
+}
+
+a {
+  text-decoration:none;
+  color : black;
+}
+
+
 #wrap {
   position : absolute;
-  top:13%;
-  left:5%;
+  top:0%;
+  left:2%;
+  width : 1500px;
+  height:1000px;
+  padding : 15px;
+  padding-right : 0px;
+  margin : 0px;
+}
+
+#svr_manage {
+  position : absolute;
+  background: white;
+  top:4.5%;
+  left:1%;
   width : 1400px;
   height:800px;
+  border : 1px solid grey;
+  padding : 15px;
+  padding-right : 0px;
+  margin : 0px;
+}
+#content_2 {
+  position : absolute;
+  background: white;
+  top:4.5%;
+  left:1%;
+  width : 1400px;
+  height:800px;
+  border : 1px solid grey;
+  padding : 15px;
+  padding-right : 0px;
+  margin : 0px;
+}
+#content_3 {
+  position : absolute;
+  background: white;
+  top:4.5%;
+  left:1%;
+  width : 1400px;
+  height:800px;
+  border : 1px solid grey;
+  padding : 15px;
+  padding-right : 0px;
+  margin : 0px;
+}
+#content_4 {
+  position : absolute;
+  background: white;
+  top:4.5%;
+  left:1%;
+  width : 1400px;
+  height:800px;
+  border : 1px solid grey;
+  padding : 15px;
+  padding-right : 0px;
+  margin : 0px;
 }
 
 #header {
