@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!--
-제일먼저 Jquery를 import한다. 로컬에 다운받은게 있으면 src부분에 경로지정해 주면 된다.
-Jquery버전은 상관없다.
--->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript">
-//페이지가 로드되면 실행한다.
-$(document).ready( function() {
-  $("#testBtn").click(function(){
-    $("#contents").load("testContents.html");
-  });
-  $("#testBtn2").click(function(){
-    $("#contents").load("testContents2.html");
-  });
-	//~이렇게 한줄만 해주면 알아서 contents에 testContents.html파일을 넣어 준다.
-});
-</script>
-</head>
-<body>
-  <button id="testBtn"> click </button>
-  <button id="testBtn2"> click2 </button>
-<div id="header">이부분은 헤더</div>
-<div id="contents">
+  <head>
+    <link rel="stylesheet" href="css/htmllink_style.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+  //페이지가 로드되면 실행한다.
+    $(document).ready( function() {
+      $("#testBtn").click(function(){
+        $("#contents").load("testContents.html");
+      });
+      $("#testBtn2").click(function(){
+        $("#contents").load("testContents2.html");
+      });
+    	//~이렇게 한줄만 해주면 알아서 contents에 testContents.html파일을 넣어 준다.
+    });
+    </script>
+  </head>
 
-</div>
-<div id="footer">이부분은 푸터</div>
-</body>
+  <body>
+    <button id="testBtn"> click </button>
+    <button id="testBtn2"> click2 </button>
+  <div id="header">이부분은 헤더</div>
+  <div id="contents">
+
+  </div>
+  <div id="footer">이부분은 푸터</div>
+  </body>
 </html>
