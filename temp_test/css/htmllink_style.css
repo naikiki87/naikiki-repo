@@ -1,9 +1,12 @@
 #contents {
+  position : absolute;
+  top : 5%;
+  left : 5%;
   width : 2000px;
   height : 1800px;
   border : 1px solid;
   padding : 0px;
-  
+
 }
 
 table {
