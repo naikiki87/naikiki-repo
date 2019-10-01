@@ -6,14 +6,10 @@
 Jquery버전은 상관없다.
 -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-</head>
-
-<!--
 <script type="text/javascript">
 //페이지가 로드되면 실행한다.
 $(document).ready( function() {
-	$("#contents").load("testContents.html #import_contents");
+	$("#contents").load("testContents.html");
 	//~이렇게 한줄만 해주면 알아서 contents에 testContents.html파일을 넣어 준다.
 });
 </script>
@@ -24,31 +20,5 @@ $(document).ready( function() {
 
 </div>
 <div id="footer">이부분은 푸터</div>
-
--->
-<body>
-  <script>
-
-$(document).ready(function(){
-
-$('#trigger').click(function(){
-
-$('#dynamic_div').load('testContents.html');
-
-return false;
-
-});
-
-});
-
-</script>
-
-
-
-<a href="#" id="trigger">클릭하면로드</a>
-
-<div id="dynamic_div">
-aaa
-</div>
 </body>
 </html>
