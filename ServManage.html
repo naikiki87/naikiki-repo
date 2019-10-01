@@ -7,10 +7,17 @@
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+
     <div id = "wrap">
       <div class="tab_menu">
 
         <div class="tab-list">
+
+          <div id="tb_0" class="tabmenu active">
+               테스트
+          </div>
+
+
           <div id="tb_1" class="tabmenu active">
               <a href="javascript:oksSwitchTab('tb_1', 'svr_manage');"> 연산서버 관리</a>
           </div>
@@ -139,6 +146,8 @@
         <button type="button" id="append_row" style="float:right; font-size:15px; font-weight : bold;" onclick="test()">서버 추가</button>
       </div>
       </script>
+
+
 
     <script type="text/javascript" src="javascript/ServManage.js"></script>
   </body>

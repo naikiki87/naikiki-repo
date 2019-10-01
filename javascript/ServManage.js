@@ -1,3 +1,12 @@
+$("#testBtn").click(function(){
+  console.log("Hello");
+})
+
+$("#tb_0").click(function(){
+  $("#wrap").load("javascript/schemaManage.html");
+  console.log("Hello");
+})
+
 function oksSwitchTab(tab_id, tab_content) {
     // first of all we get all tab content blocks (I think the best way to get them
     // by class names)
