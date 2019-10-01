@@ -7,10 +7,11 @@
   //페이지가 로드되면 실행한다.
     $(document).ready( function() {
       $("#contents").load("startContent.html");
-      $("#testBtn").click(function(){
+      $("#tb_1").click(function(){
+        console.log("jello");
         $("#contents").load("testContents.html");
       });
-      $("#testBtn2").click(function(){
+      $("#tb_2").click(function(){
         $("#contents").load("testContents2.html");
       });
     	//~이렇게 한줄만 해주면 알아서 contents에 testContents.html파일을 넣어 준다.
@@ -19,12 +20,20 @@
   </head>
 
   <body>
-    <button id="testBtn"> click1 </button>
-    <button id="testBtn2"> click2 </button>
-  <div id="header">이부분은 헤더</div>
-  <div id="contents">
+    <div id = "wrap">
+      <div class="tab_menu">
+        <div class="tab-list">
+          <div id="tb_1" class="tabmenu active">
+              연산서버 관리1
+          </div>
+          <div id="tb_2" class="tabmenu">
+              데이터스키마 관리
+          </div>
+        </div>
+      </div>
 
-  </div>
-  <div id="footer">이부분은 푸터</div>
+      <div id="contents"> </div>
+
+    </div>
   </body>
 </html>
