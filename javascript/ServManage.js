@@ -3,7 +3,7 @@ $("#testBtn").click(function(){
 })
 
 $("#tb_0").click(function(){
-  $("#wrap").load("javascript/schemaManage.html");
+  $("#article").load("javascript/schemaManage.html");
   console.log("Hello");
 })
 
