@@ -1,30 +1,10 @@
 <html>
   <head>
-    <link rel="stylesheet" href="css/ServManagecss.css" />
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-
+    <link rel="stylesheet" href="../css/ServManagecss.css" />
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
     <div id = "wrap">
-      <div class="tab_menu">
-
-        <div class="tab-list">
-          <div id="tb_1" class="tabmenu active">
-              <a href="javascript:oksSwitchTab('tb_1', 'svr_manage');"> 연산서버 관리</a>
-          </div>
-          <div id="tb_2" class="tabmenu">
-              <a href="javascript:oksSwitchTab('tb_2', 'content_2');"> 데이터스키마 관리</a>
-          </div>
-          <div id="tb_3" class="tabmenu">
-              <a href="javascript:oksSwitchTab('tb_3', 'content_3');"> Job 생성/관리</a>
-          </div>
-          <div id="tb_4" class="tabmenu">
-              <a href="javascript:oksSwitchTab('tb_4', 'content_4');"> Task 등록/관리</a>
-          </div>
-        </div>
-      </div>
 
     <div id="content_2" class="tabcontent" style="display:none;">content 2</div>
     <div id="content_3" class="tabcontent" style="display:none;">content 3</div>
@@ -46,7 +26,6 @@
       </div>
 
     </div>
-  </div>
     <script type="text/x-template" id="view-template">
       <table id="list_table">
       <colgroup>
@@ -139,7 +118,8 @@
         <button type="button" id="append_row" style="float:right; font-size:15px; font-weight : bold;" onclick="test()">서버 추가</button>
       </div>
       </script>
+    </div>
 
-    <script type="text/javascript" src="javascript/ServManage.js"></script>
+    <script type="text/javascript" src="../javascript/ServManage.js"></script>
   </body>
 </html>
