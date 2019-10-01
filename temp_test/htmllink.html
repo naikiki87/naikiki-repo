@@ -3,20 +3,6 @@
   <head>
     <link rel="stylesheet" href="css/htmllink_style.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript">
-  //페이지가 로드되면 실행한다.
-    $(document).ready( function() {
-      $("#contents").load("startContent.html");
-      $("#tb_1").click(function(){
-        console.log("jello");
-        $("#contents").load("testContents.html");
-      });
-      $("#tb_2").click(function(){
-        $("#contents").load("testContents2.html");
-      });
-    	//~이렇게 한줄만 해주면 알아서 contents에 testContents.html파일을 넣어 준다.
-    });
-    </script>
   </head>
 
   <body>
@@ -24,7 +10,7 @@
       <div class="tab_menu">
         <div class="tab-list">
           <div id="tb_1" class="tabmenu active">
-              연산서버 관리1
+              연산서버 관리2
           </div>
           <div id="tb_2" class="tabmenu">
               데이터스키마 관리
@@ -36,4 +22,17 @@
 
     </div>
   </body>
+
+  <script type="text/javascript">
+    $(document).ready( function() {
+      $("#contents").load("startContent.html");
+      $("#tb_1").click(function(){
+        console.log("jello");
+        $("#contents").load("testContents.html");
+      });
+      $("#tb_2").click(function(){
+        $("#contents").load("testContents2.html");
+      });
+    });
+  </script>
 </html>

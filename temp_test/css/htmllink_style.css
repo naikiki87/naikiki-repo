@@ -69,13 +69,8 @@ th, td {
   color : black;
 }
 
-.tab-list .active::after {
-  /* content:"ㆍ"; */
-
-}
-
 .tab-list .active {
-  font-size : 17px;
+  font-size : 20px;
   background: #a9d0f5;
   font-weight : bold;
 }
