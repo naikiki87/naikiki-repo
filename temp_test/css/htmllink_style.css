@@ -2,6 +2,8 @@
   width : 2000px;
   height : 1800px;
   border : 1px solid;
+  padding : 0px;
+  
 }
 
 table {
@@ -66,7 +68,7 @@ div {
 }
 
 #svr_manage {
-  
+
   width : 1400px;
   height:800px;
   border : 1px solid grey;
@@ -80,22 +82,13 @@ div {
   font-weight: bold;
   font-size: 30px;
 }
-.input_name {
-  font-size: 13px;
 
-  width : 80px;
-  color : blue;
-}
 .input_box {
   width : 130px;
 }
 
 #view_section {
   padding : 10px;
-  /*top : 100px;
-  top : 15%;
-  left : 10%;
-  */
   width : 75%;
   height : 700px;
 
