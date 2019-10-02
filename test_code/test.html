@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="KR">
+  <head>
+    <meta charset="UTF-8">
+    <title>Vertical Align</title>
+  </head>
+  <body>
+    <button onclick="pointing(10, 10, 10, 2)"> click </button>
+
+
+    <script>
+    function pointing(a, b, l, d) {
+    //function pointing() {
+
+      var x1, x2;
+      var y1, y2;
+      //var y2 = b-(a*d);
+      //var y3 = y2 - b;
+
+      var A = 1 + (d*d);
+      var B = (2*a*d*d) - (2*a);
+      var C = (a*a) + (a*a*d*d) - (l*l);
+
+      console.log("A : " + A);
+      console.log("B : " + B);
+      console.log("C : " + C);
+
+      x1 = (-1*B + Math.sqrt(B*B - 4*A*C)) / (2*A);
+      x2 = (-1*B - Math.sqrt(B*B - 4*A*C)) / (2*A);
+      console.log((B*B - 4*A*C));
+
+      y1 = d * x1 + b - a*d;
+      y2 = d * x2 + b - a*d;
+
+      console.log("x1 : " + x1 + ", y1 : " + y1);
+      console.log("x2 : " + x2 + ", y2 : " + y2);
+}
+
+/*    function pointing(c, d, len, deg) {
+    //function pointing() {
+
+      //var a, b, c, d, x, y;
+      var a, b;
+      var x1, x2, ya, yb;
+      var aa, bb ,cc;
+      //var deg;
+      var len;
+      var y2, y3;
+
+      a = 0;
+      b = 0;
+      //c = 10;
+      //d = 10;
+      //len = 14;
+
+      //deg = (d-b)/(c-a);
+      y2 = b - (a*deg);
+      y3 = d - y2;
+
+      aa = (deg*deg) + 1;
+      bb = -2*y3*deg -2*c;
+      cc = c*c + y3*y3 - len*len;
+
+      console.log(y2);
+      console.log(y3);
+      console.log(aa);
+      console.log(bb);
+      console.log(cc);
+      console.log(bb*bb - 4*aa*cc);
+
+      x1 = (-1*bb + Math.sqrt(bb*bb - 4*aa*cc)) / (2*aa);
+      x2 = (-1*bb - Math.sqrt(bb*bb - 4*aa*cc)) / (2*aa);
+
+      ya = deg * x1 + b - a*deg;
+      yb = deg * x2 + b - a*deg;
+
+      console.log("x1 : "+ x1 + ", y1 : " + ya);
+      console.log("x2 : "+ x2 + ", y2 : " + yb);
+
+      m_arrow_x = Math.min(x1, x2);
+      m_arrow_y = deg * m_arrow_x + b - a*deg;
+      console.log(m_arrow_x);
+      console.log(m_arrow_y);
+
+
+}
+*/
+
+    </script>
+  </body>
+</html>
