@@ -1,0 +1,147 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/ServManagecss.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+
+    <div id = "wrap">
+      <div class="tab_menu">
+
+        <div class="tab-list">
+          <div id="tb_1" class="tabmenu active">
+              <a href="javascript:oksSwitchTab('tb_1', 'svr_manage');"> 연산서버 관리</a>
+          </div>
+          <div id="tb_2" class="tabmenu">
+              <a href="javascript:oksSwitchTab('tb_2', 'content_2');"> 데이터스키마 관리</a>
+          </div>
+          <div id="tb_3" class="tabmenu">
+              <a href="javascript:oksSwitchTab('tb_3', 'content_3');"> Job 생성/관리</a>
+          </div>
+          <div id="tb_4" class="tabmenu">
+              <a href="javascript:oksSwitchTab('tb_4', 'content_4');"> Task 등록/관리</a>
+          </div>
+        </div>
+      </div>
+
+    <div id="content_2" class="tabcontent" style="display:none;">content 2</div>
+    <div id="content_3" class="tabcontent" style="display:none;">content 3</div>
+    <div id="content_4" class="tabcontent" style="display:none;">content 4</div>
+
+    <div id = "svr_manage" class = "tabcontent">
+
+      <!--<div id = "header">-->
+      <div style="margin-bottom : 20px;">
+        <div id="header_title">COMPUTING SERVER MANAGEMENT</div>
+      </div>
+
+      <div id = "view_section">
+        <view-section></view-section>
+      </div>
+
+      <div id = "input_section">
+        <input-section></input-section>
+      </div>
+
+    </div>
+  </div>
+
+    <script type="text/x-template" id="view-template">
+      <table id="list_table">
+      <colgroup>
+
+        	<col style="width: 5%"> <!-- ID -->
+        	<col style="width: 10%"> <!-- Input port -->
+        	<col style="width: 10%"> <!-- root ID -->
+        	<col style="width: 10%"> <!-- password -->
+          <col style="width: 20%"> <!-- status -->
+          <col style="width: 10%"> <!-- root ID -->
+        	<col style="width: 10%"> <!-- password -->
+          <col style="width: 10%"> <!-- status -->
+          <col style="width: 5%"> <!-- delete -->
+          <col style="width: 5%"> <!-- show -->
+        </colgroup>
+        <thead>
+          <th id="svr_list_header" colspan = 11> Compute Server List</th>
+        	<tr>
+        		<th class="svr_list_title">ID</th>
+        		<th class="svr_list_title">INPUT PORT</th>
+        		<th class="svr_list_title">root ID</th>
+        		<th class="svr_list_title">PASSWORD</th>
+            <th class="svr_list_title">STATUS(CPU, Memory)</th>
+            <th class="svr_list_title">Role</th>
+        		<th class="svr_list_title">Out Com ID</th>
+        		<th class="svr_list_title">Module</th>
+            <th class="svr_list_title">Description</th>
+            <th class="svr_list_title">Delete</th>
+            <th class="svr_list_title">Link</th>
+        	</tr>
+        </thead>
+        <tbody>
+        	<tr style="display:none;">
+        		<td>0</td>
+        		<td></td>
+        		<td></td>
+            <td></td>
+            <td></td>
+        		<td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        		<td></td>
+
+        	</tr>
+        </tbody>
+      </table>
+    </script>
+
+    <script type="text/x-template" id="input-template">
+      <div id="data_append">
+        <h3> Data Append </h3>
+        <tr style="display:none;">
+          <td> Input  </td>
+          <td> <input class="input_box" type="text" id="add_ID"> </td>
+        </tr>
+        <tr>
+          <td> Input Port </td>
+          <td> <input class="input_box" type="text" id="add_Port"> </td>
+        </tr>
+        <tr>
+          <td> root ID </td>
+          <td> <input class="input_box" type="text" id="add_RootID"> </td>
+        </tr>
+        <tr>
+          <td> Password </td>
+          <td> <input class="input_box" type="text" id="add_Password"> </td>
+        </tr>
+        <tr>
+          <td> Role </td>
+          <td> <input class="input_box" type="text" id="add_Role"> </td>
+        </tr>
+        <tr>
+          <td> Output Comp ID </td>
+          <td> <input class="input_box" type="text" id="add_OutCompID"> </td>
+        </tr>
+        <tr>
+          <td> Module Name </td>
+          <td> <input class="input_box" type="text" id="add_Module"> </td>
+        </tr>
+        <tr>
+          <td> Description </td>
+          <td> <input class="input_box" type="text" id="add_Description"> </td>
+        </tr>
+        <br></br>
+
+        <button type="button" id="append_row" style="float:right; font-size:15px; font-weight : bold;" onclick="test()">서버 추가</button>
+      </div>
+    </script>
+
+
+
+    <script type="text/javascript" src="../javascript/ServManage.js"></script>
+  </body>
+</html>

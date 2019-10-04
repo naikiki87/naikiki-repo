@@ -1,0 +1,45 @@
+.tab_menu {
+  position : absolute;
+  width : 95%;
+  height : 34px;
+  padding : 0px;
+  padding-left : 10px;
+  margin : 0px;
+  border : 1px solid;
+}
+.tab-list {
+  padding : 6px;
+}
+
+.tab-list div {
+  
+  float : left;
+  display:inline-block;
+  top : 0px;
+  padding : 2px;
+  margin : 0px;
+  margin-right:3px;
+  border : 1px solid;
+  width : 170px;
+  text-align : center;
+  font-size : 13px;
+  border-radius: 4px;
+  background: #f2f2f2;
+  color : black;
+}
+
+.tab-list .active::after {
+  /* content:"ㆍ"; */
+
+}
+
+.tab-list .active {
+  font-size : 14px;
+  background: #a9ddf5;
+  font-weight : bold;
+}
+
+a {
+  text-decoration:none;
+  color : black;
+}
